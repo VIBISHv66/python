@@ -1,0 +1,24 @@
+You are given an integer array nums. You are initially positioned at the array's first index, and each element in the array represents your maximum jump length at that position.
+
+Return true if you can reach the last index, or false otherwise.
+
+class Solution(object):
+    def canJump(self, nums):
+
+        last_index_True = len(nums)-1
+        for i in range(len(nums)-1, -1, -1):
+            if nums[i]-(last_index_True-i)>=0:
+                last_index_True=i
+
+        if last_index_True==0:
+            return True
+        else:
+            return False
+        # """
+        # :type nums: List[int]
+        # :rtype: bool
+        # """
+s=Solution()
+nums = [2,6,8, 3, 1, 1, 4]   
+hi=s.canJump( nums)  
+print(hi)
